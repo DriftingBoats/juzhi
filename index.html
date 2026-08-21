@@ -8,7 +8,7 @@
   <meta name="description" content="电纸书书摘壁纸">
   <title>句纸</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-  <link rel="stylesheet" href="styles.css?v=19">
+  <link rel="stylesheet" href="styles.css?v=20">
 </head>
 <body>
   <a class="skip-link" href="#editor">跳到编辑器</a>
@@ -30,20 +30,22 @@
 
         <form id="wallpaperForm" novalidate>
           <fieldset class="form-section content-section">
-            <label for="quoteInput">摘录</label>
-            <div class="textarea-wrap">
-              <textarea id="quoteInput" rows="6" maxlength="180" aria-describedby="quoteCount"></textarea>
+            <div class="field-label-row">
+              <label for="quoteInput">摘录</label>
               <span id="quoteCount" class="char-count" aria-live="polite">0 / 180</span>
+            </div>
+            <div class="textarea-wrap">
+              <textarea id="quoteInput" rows="6" maxlength="180" aria-describedby="quoteCount" placeholder="粘贴或输入一句书摘"></textarea>
             </div>
 
             <div class="field-row">
               <div class="field">
                 <label for="authorInput">作者</label>
-                <input id="authorInput" type="text" maxlength="30">
+                <input id="authorInput" type="text" maxlength="30" placeholder="选填">
               </div>
               <div class="field">
                 <label for="bookInput">书名</label>
-                <input id="bookInput" type="text" maxlength="40">
+                <input id="bookInput" type="text" maxlength="40" placeholder="选填">
               </div>
             </div>
           </fieldset>
