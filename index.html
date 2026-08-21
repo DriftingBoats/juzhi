@@ -8,7 +8,7 @@
   <meta name="description" content="电纸书书摘壁纸">
   <title>句纸</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
-  <link rel="stylesheet" href="styles.css?v=17">
+  <link rel="stylesheet" href="styles.css?v=19">
 </head>
 <body>
   <a class="skip-link" href="#editor">跳到编辑器</a>
@@ -20,34 +20,36 @@
           <span class="brand-mark" aria-hidden="true">句</span>
           <span class="brand-copy"><strong>句纸</strong><small>电纸书书摘壁纸</small></span>
         </a>
+      </div>
 
+      <div class="control-body">
         <div class="panel-heading">
           <h1 id="editorTitle"><span class="hero-line"><span class="hero-highlight">句</span>子，</span><span class="hero-line">跃然<span class="hero-highlight">纸</span>上。</span></h1>
           <p>从书里选一句，与此刻的自己相认。每次待机时刻，再读一遍。</p>
         </div>
+
+        <form id="wallpaperForm" novalidate>
+          <fieldset class="form-section content-section">
+            <label for="quoteInput">摘录</label>
+            <div class="textarea-wrap">
+              <textarea id="quoteInput" rows="6" maxlength="180" aria-describedby="quoteCount"></textarea>
+              <span id="quoteCount" class="char-count" aria-live="polite">0 / 180</span>
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="authorInput">作者</label>
+                <input id="authorInput" type="text" maxlength="30">
+              </div>
+              <div class="field">
+                <label for="bookInput">书名</label>
+                <input id="bookInput" type="text" maxlength="40">
+              </div>
+            </div>
+          </fieldset>
+
+        </form>
       </div>
-
-      <form id="wallpaperForm" novalidate>
-        <fieldset class="form-section content-section">
-          <label for="quoteInput">摘录</label>
-          <div class="textarea-wrap">
-            <textarea id="quoteInput" rows="6" maxlength="180" aria-describedby="quoteCount"></textarea>
-            <span id="quoteCount" class="char-count" aria-live="polite">0 / 180</span>
-          </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="authorInput">作者</label>
-              <input id="authorInput" type="text" maxlength="30">
-            </div>
-            <div class="field">
-              <label for="bookInput">书名</label>
-              <input id="bookInput" type="text" maxlength="40">
-            </div>
-          </div>
-        </fieldset>
-
-      </form>
     </section>
 
     <section class="preview-panel" aria-labelledby="previewTitle">
