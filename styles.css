@@ -398,7 +398,16 @@ input[type="range"]::-webkit-slider-thumb { width: 14px; height: 14px; margin-to
 @media (min-width: 1056px) {
   html, body { height: 100%; overflow: hidden; }
   .workspace { height: 100svh; min-height: 0; }
-  .control-panel,
+  .control-panel { height: 100svh; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .control-panel .control-intro { position: static; z-index: auto; flex: 0 0 auto; }
+  .control-panel form {
+    flex: 1 1 auto;
+    min-height: 0;
+    width: 100%;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scrollbar-gutter: stable;
+  }
   .preview-panel {
     height: 100svh;
     min-height: 0;
