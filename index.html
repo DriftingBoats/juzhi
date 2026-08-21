@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f4f4f0">
+  <meta name="application-name" content="句纸">
+  <meta name="description" content="电纸书书摘壁纸">
+  <title>句纸</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=1">
+  <link rel="stylesheet" href="styles.css?v=16">
+</head>
+<body>
+  <a class="skip-link" href="#editor">跳到编辑器</a>
+
+  <main id="editor" class="workspace">
+    <section class="control-panel" aria-labelledby="editorTitle">
+      <div class="control-intro">
+        <a class="brand control-brand" href="#editor" aria-label="句纸编辑器顶部">
+          <span class="brand-mark" aria-hidden="true">句</span>
+          <span class="brand-copy"><strong>句纸</strong><small>电纸书书摘壁纸</small></span>
+        </a>
+
+        <div class="panel-heading">
+          <h1 id="editorTitle"><span class="hero-line"><span class="hero-highlight">句</span>子，</span><span class="hero-line">跃然<span class="hero-highlight">纸</span>上。</span></h1>
+          <p>从书里选一句，与此刻的自己相认。每次待机时刻，再读一遍。</p>
+        </div>
+      </div>
+
+      <form id="wallpaperForm" novalidate>
+        <fieldset class="form-section content-section">
+          <label for="quoteInput">摘录</label>
+          <div class="textarea-wrap">
+            <textarea id="quoteInput" rows="6" maxlength="180" aria-describedby="quoteCount"></textarea>
+            <span id="quoteCount" class="char-count" aria-live="polite">0 / 180</span>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="authorInput">作者</label>
+              <input id="authorInput" type="text" maxlength="30">
+            </div>
+            <div class="field">
+              <label for="bookInput">书名</label>
+              <input id="bookInput" type="text" maxlength="40">
+            </div>
+          </div>
+        </fieldset>
+
+      </form>
+    </section>
+
+    <section class="preview-panel" aria-labelledby="previewTitle">
+      <div class="preview-toolbar">
+        <div class="preview-toolbar-top">
+          <div>
+            <p class="eyebrow">实时预览</p>
+            <h2 id="previewTitle">壁纸预览</h2>
+          </div>
+          <div class="preview-meta-actions">
+            <p class="preview-dimensions"><span id="dimensionLabel">1072 × 1448 px</span><i></i><span id="scaleLabel">34% 缩放</span></p>
+            <button class="export-button" id="exportButton" type="button">
+              <span>导出壁纸</span><span aria-hidden="true">↓</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="preview-config-bar">
+          <section class="config-group template-config" aria-labelledby="templateConfigTitle">
+            <div class="config-label"><span id="templateConfigTitle">版式</span><small id="styleSettingsHint">蓝墨诗笺 · 通用 · 1072 × 1448</small></div>
+            <div class="template-list" role="radiogroup" aria-label="壁纸模板">
+              <button class="template-option is-active" type="button" role="radio" aria-checked="true" data-template="poem">
+                <span class="template-index" aria-hidden="true">01</span>
+                <span><strong>蓝墨诗笺</strong><small>清透 · 文气</small></span>
+                <span class="template-check" aria-hidden="true">✓</span>
+              </button>
+              <button class="template-option" type="button" role="radio" aria-checked="false" data-template="ink">
+                <span class="template-index" aria-hidden="true">02</span>
+                <span><strong>黑墨留白</strong><small>直接 · 克制</small></span>
+                <span class="template-check" aria-hidden="true">✓</span>
+              </button>
+              <button class="template-option" type="button" role="radio" aria-checked="false" data-template="book">
+                <span class="template-index" aria-hidden="true">03</span>
+                <span><strong>纸本手记</strong><small>温润 · 雅致</small></span>
+                <span class="template-check" aria-hidden="true">✓</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="config-group size-config" aria-labelledby="sizeConfigTitle">
+            <div class="config-label"><span id="sizeConfigTitle">尺寸</span></div>
+            <div class="device-picker">
+              <div class="device-selector-grid">
+                <div class="field">
+                  <label for="deviceBrandSelect">品牌</label>
+                  <select id="deviceBrandSelect">
+                    <option value="generic">通用</option>
+                    <option value="kindle">Kindle</option>
+                    <option value="kobo">Kobo</option>
+                    <option value="boox">文石 BOOX</option>
+                    <option value="ireader">掌阅 iReader</option>
+                    <option value="hanvon">汉王</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label id="deviceModelLabel" for="deviceSelect">常用尺寸</label>
+                  <select id="deviceSelect">
+                    <option value="1072x1448" data-models="常见 6 英寸 300 PPI 电纸书">1072 × 1448 · 6 英寸 300 PPI</option>
+                  </select>
+                </div>
+              </div>
+              <div class="orientation-control" role="group" aria-label="壁纸方向">
+                <button class="orientation-button is-active" type="button" data-orientation="portrait" aria-pressed="true">竖屏</button>
+                <button class="orientation-button" type="button" data-orientation="landscape" aria-pressed="false">横屏</button>
+              </div>
+            </div>
+            <p class="device-models"><span>当前选择</span><strong id="deviceModels">常见 6 英寸 300 PPI 电纸书</strong></p>
+            <div class="custom-size" id="customSize" hidden>
+              <label>宽度 <input id="customWidth" type="number" min="400" max="3000" value="1080" inputmode="numeric"> px</label>
+              <label>高度 <input id="customHeight" type="number" min="400" max="3000" value="1440" inputmode="numeric"> px</label>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="studio-body">
+        <div class="preview-canvas">
+          <div class="device-stage" id="deviceStage">
+            <div class="dimension-ruler ruler-top" aria-hidden="true"><span id="rulerWidth">1072 px</span></div>
+            <div class="dimension-ruler ruler-side" aria-hidden="true"><span id="rulerHeight">1448 px</span></div>
+            <div class="preview-shadow" aria-hidden="true"></div>
+            <article class="wallpaper template-poem" id="wallpaper" aria-label="生成的书摘壁纸预览">
+          <div class="paper-noise" aria-hidden="true"></div>
+          <div class="safe-area" aria-hidden="true"></div>
+          <div class="book-title-mark" id="bookTitleMark" aria-hidden="true"></div>
+          <div class="group-selection-box" id="groupSelectionBox">
+            <button class="font-size-handle group-font-size-handle" type="button" data-resize="font" data-group-resize="true" aria-label="向外或向内拖动，同步缩放书摘与出处字号">Aa</button>
+            <span class="block-label" aria-hidden="true">一起</span>
+          </div>
+          <div class="quote-block draggable-block" id="quoteBlock" data-block="quote" tabindex="0" aria-label="书摘文字，可拖动调整位置">
+            <button class="resize-handle handle-left" type="button" data-resize="left" aria-label="从左侧调整书摘宽度"></button>
+            <p id="quotePreview"></p>
+            <button class="resize-handle handle-right" type="button" data-resize="right" aria-label="从右侧调整书摘宽度"></button>
+            <button class="font-size-handle" type="button" data-resize="font" aria-label="拖动调整书摘字号">A</button>
+            <span class="block-label" aria-hidden="true">书摘</span>
+          </div>
+          <div class="source-block draggable-block" id="sourceBlock" data-block="source" tabindex="0" aria-label="作者与书名，可拖动调整位置">
+            <button class="resize-handle handle-left" type="button" data-resize="left" aria-label="从左侧调整出处宽度"></button>
+            <div class="attribution" id="attributionPreview">
+              <span id="authorPreview"></span>
+              <span class="divider">—</span>
+              <cite id="bookPreview"></cite>
+            </div>
+            <button class="resize-handle handle-right" type="button" data-resize="right" aria-label="从右侧调整出处宽度"></button>
+            <button class="font-size-handle" type="button" data-resize="font" aria-label="拖动调整出处字号">A</button>
+            <span class="block-label" aria-hidden="true">出处</span>
+          </div>
+            </article>
+          </div>
+
+        </div>
+
+        <aside class="studio-inspector" id="studioInspector" aria-label="人工微调">
+          <div class="inspector-header">
+            <div class="inspector-commandbar">
+              <div class="preview-frame-align-control" role="group" aria-label="对齐书摘框与出处框">
+                <span>整体对齐</span>
+                <button class="preview-frame-align-button" type="button" data-frame-align="left" aria-label="出处框与书摘框左边缘对齐">左</button>
+                <button class="preview-frame-align-button" type="button" data-frame-align="center" aria-label="出处框与书摘框中心线对齐">中</button>
+                <button class="preview-frame-align-button" type="button" data-frame-align="right" aria-label="出处框与书摘框右边缘对齐">右</button>
+              </div>
+              <label class="switch-field preview-safe-area">
+                <input id="safeAreaToggle" type="checkbox">
+                <span class="switch" aria-hidden="true"></span>
+                <span>安全区显示</span>
+              </label>
+              <button class="preview-reset-button" id="previewResetButton" type="button">重置版式</button>
+            </div>
+
+            <div class="inspector-target-bar">
+              <div><span>编辑区域</span><small id="targetHint">先选择要调整的内容</small></div>
+              <div class="preview-target-switch" role="group" aria-label="预览编辑对象">
+                <button class="preview-target-button" type="button" data-target="quote" aria-pressed="false">书摘</button>
+                <button class="preview-target-button" type="button" data-target="source" aria-pressed="false">出处</button>
+                <button class="preview-target-button" type="button" data-target="all" aria-pressed="false">一起</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="tune-empty-state" id="tuneEmptyState">
+            <span aria-hidden="true">↖</span>
+            <p>选择一块文字后，可调整字体、字号、位置和对齐。</p>
+          </div>
+
+          <div class="tune-controls" id="tuneControls">
+          <div class="fine-tune">
+            <div class="fine-tune-heading"><span>人工微调</span><span class="summary-hint">位置、宽度与字号</span></div>
+            <div class="type-controls">
+              <div class="field">
+                <label for="fontStyleSelect">字体气质</label>
+                <select id="fontStyleSelect">
+                  <option value="ming">旧式明朝 · 清瘦有骨</option>
+                  <option value="print">铅字宋体 · 墨色丰厚</option>
+                  <option value="fangsong">仿宋书页 · 温和疏朗</option>
+                  <option value="kai">手写楷体 · 自然松弛</option>
+                  <option value="custom" disabled>本地字体 · 尚未选择</option>
+                </select>
+              </div>
+              <label class="font-upload" for="fontUpload">
+                <input id="fontUpload" type="file" accept=".ttf,.otf,.woff,.woff2,font/ttf,font/otf,font/woff,font/woff2">
+                <span>＋ 上传本地字体</span>
+                <small>仅在浏览器内使用</small>
+              </label>
+            </div>
+            <div class="fine-tune-grid">
+              <label class="range-field" for="fontSizeRange">
+                <span>字号 <output id="fontSizeOutput">54</output></span>
+                <input id="fontSizeRange" type="range" min="12" max="76" step="0.5" value="54">
+              </label>
+              <label class="range-field" for="lineHeightRange">
+                <span>行距 <output id="lineHeightOutput">1.65</output></span>
+                <input id="lineHeightRange" type="range" min="120" max="210" value="165">
+              </label>
+              <label class="range-field" for="xRange">
+                <span>左右 <output id="xOutput">12%</output></span>
+                <input id="xRange" type="range" min="3" max="84" value="12">
+              </label>
+              <label class="range-field" for="yRange">
+                <span>上下 <output id="yOutput">27%</output></span>
+                <input id="yRange" type="range" min="3" max="90" value="27">
+              </label>
+              <label class="range-field" for="widthRange">
+                <span>文本宽度 <output id="widthOutput">76%</output></span>
+                <input id="widthRange" type="range" min="16" max="90" value="76">
+              </label>
+              <label class="range-field" for="inkRange">
+                <span>油墨感 <output id="inkOutput">30%</output></span>
+                <input id="inkRange" type="range" min="0" max="100" value="30">
+              </label>
+            </div>
+            <div class="align-controls" role="group" aria-label="文字对齐">
+              <span>文字对齐</span>
+              <button class="align-button is-active" type="button" data-align="left" aria-pressed="true">左</button>
+              <button class="align-button" type="button" data-align="center" aria-pressed="false">中</button>
+              <button class="align-button" type="button" data-align="right" aria-pressed="false">右</button>
+            </div>
+          </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <nav class="mobile-nav" aria-label="移动端工作区">
+    <button class="mobile-tab is-active" type="button" data-mobile-view="edit" aria-pressed="true"><span>编辑</span><small>书摘内容</small></button>
+    <button class="mobile-tab" type="button" data-mobile-view="preview" aria-pressed="false"><span>预览</span><small id="mobileDimension">1072 × 1448</small></button>
+    <button class="mobile-export" id="mobileExportButton" type="button">导出 PNG</button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <span aria-hidden="true">✓</span><p><strong>已生成</strong><small>图片已保存到下载目录</small></p>
+  </div>
+
+  <canvas id="exportCanvas" hidden></canvas>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
